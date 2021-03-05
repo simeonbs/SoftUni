@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Telephony
@@ -8,7 +9,7 @@ namespace Telephony
     {
         public string Browse(string url)
         {
-            if (!IsDigitsOnly(url))
+            if (!url.Any(char.IsDigit))
             {
                 return $"Browsing: {url}!";
             }
