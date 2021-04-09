@@ -70,15 +70,16 @@ namespace EasterRaces.Core.Entities
             if (type == "Muscle")
             {
                 car = new MuscleCar(model, horsePower);
-                
+                this.cars.Add(car);
                 return $"MuscleCar {model} is created.";
             }
             if (type == "Sports")
             {
                 car = new SportsCar(model, horsePower);
+                this.cars.Add(car);
                 return $"SportsCar {model} is created.";
             }
-            this.cars.Add(car);
+            
             return "";
         }
 
@@ -123,14 +124,14 @@ namespace EasterRaces.Core.Entities
 
             var first = sortedDrivers[0];
             var second = sortedDrivers[1];
-            var third = sortedDrivers[3];
+            var third = sortedDrivers[2];
 
             this.race.Remove(race);
 
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Driver {first} wins {raceName} race.");
-            sb.AppendLine($"Driver {second} is second in {raceName} race.");
-            sb.AppendLine($"Driver {third} is third in {raceName} race.");
+            sb.AppendLine($"Driver {first.Name} wins {raceName} race.");
+            sb.AppendLine($"Driver {second.Name} is second in {raceName} race.");
+            sb.AppendLine($"Driver {third.Name} is third in {raceName} race.");
             return sb.ToString().TrimEnd();
         }
     }
